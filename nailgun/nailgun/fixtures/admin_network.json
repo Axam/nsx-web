@@ -1,0 +1,38 @@
+[
+    {
+        "pk": 1,
+        "model": "nailgun.network_group",
+        "fields": {
+            "name": "fuelweb_admin",
+            "cidr": "{{settings.ADMIN_NETWORK['cidr']}}",
+            "vlan_start": null,
+            "meta": {
+                "use_gateway": false,
+                "notation": "cidr",
+                "render_type": null,
+                "render_addr_mask": null,
+                "map_priority": 0,
+                "unmovable": true,
+                "configurable": false,
+                "assign_vip": false
+            }
+        }
+    },
+    {
+        "pk": 1,
+        "model": "nailgun.i_p_addr_range",
+        "fields": {
+            "network_group": 1,
+            "first": "{{settings.ADMIN_NETWORK['first']}}",
+            "last": "{{settings.ADMIN_NETWORK['last']}}"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "nailgun.i_p_addr",
+        "fields": {
+            "network_data": 1,
+            "ip_addr": "{{settings.MASTER_IP}}"
+        }
+    }
+]
